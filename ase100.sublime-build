@@ -1,0 +1,4 @@
+{
+	"cmd": ["ase100", "$file"],
+	"selector": "source.ase"
+}

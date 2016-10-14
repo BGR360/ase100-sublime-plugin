@@ -1,0 +1,52 @@
+%YAML 1.2
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: ase100
+file_extensions: [e, ase]
+scope: source.ase
+
+variables:
+  identifier: "[A-Za-z_][A-Za-z_0-9]*"
+  filepath: "[\\.]{0,2}(/[^/ \\.]+)+\\.[^\\s]+"
+  nonspace: "[^\\s]+"
+contexts:
+  prototype:
+    - include: comment
+  main:
+    - match: "\\b(0x[0-9a-fA-F]+|[0-9]+)\\b"
+      scope: constant.numeric.ase
+    - match: "''|'.'"
+      scope: string.quoted.single.ase
+    - match: "\\b(?i:(halt|add|sub|mult|div|cp|and|or|not|sl|sr|cpfa|cpta|be|bne|blt|call|ret))\\b"
+      scope: keyword.control.instruction.ase
+      push: instruction
+    - match: "^{{identifier}}[^\\S\\n]"
+      scope: entity.name.function.label.ase
+      push: label
+    - match: "^\\s*(#)\\b(include)\\s"
+      scope: keyword.control.include.ase
+      push: include
+  label:
+    - include: main
+    - meta_scope: meta.label.line.ase
+    - match: \n
+      pop: true
+  instruction:
+    - meta_scope: meta.instruction.line.ase
+    - match: \n
+      pop: true
+    - match: "\\s{{identifier}}"
+      scope: meta.instruction.arg.ase
+  comment:
+    - match: "//"
+      scope: punctuation.definition.comment.ase
+      push: 
+        - meta_scope: comment.line.ase
+        - match: ".*"
+          pop: true
+  include:
+    - meta_scope: meta.include.line.ase
+    - match: "{{nonspace}}"
+      scope: entity.other.include-path
+    - match: \n
+      pop: true

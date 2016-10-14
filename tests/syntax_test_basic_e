@@ -1,0 +1,27 @@
+% SYNTAX TEST "Packages/ase100/ase100.sublime-syntax"
+
+// Some comment text
+% <- punctuation.definition.comment
+%   ^ comment.line.ase
+
+        and     a               b       c
+%       ^ keyword.control.instruction.ase
+%               ^ meta.instruction.arg.ase
+%                       ^ meta.instruction.line.ase
+%                                       ^ meta.instruction.arg.ase
+
+num     0xaaFF3d33
+% <- entity.name.function.label.ase
+%       ^ meta.label.line.ase constant.numeric.ase
+
+char    'a'
+%       ^^^ string.quoted.single.ase
+
+#include ../file.e
+% <- keyword.control.include.ase
+%        ^^^^^^^^^ entity.other.include-path
+
+label   or      a       b       c
+% <- entity.name.function.label.ase
+%       ^ keyword.control.instruction.ase
+%               ^ meta.instruction.arg.ase

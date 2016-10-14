@@ -1,0 +1,6 @@
+<snippet>
+	<description>instruction $arg1 $arg2 $arg3</description>
+	<content><![CDATA[${1:instruction}	${2:arg1}	${3:arg2}	${4:arg3}]]></content>
+	<tabTrigger>ins</tabTrigger>
+	<scope>source.ase</scope>
+</snippet>

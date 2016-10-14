@@ -1,0 +1,26 @@
+{
+	"scope": "source.ase - meta.include.line.ase",
+
+	"completions": [
+		"halt",
+		"include ",
+
+		{ "trigger": "add", "contents": "add\t${1:dest}\t${2:op1}\t${3:op2}" },
+		{ "trigger": "sub", "contents": "sub\t${1:dest}\t${2:op1}\t${3:op2}" },
+		{ "trigger": "mult", "contents": "mult\t${1:dest}\t${2:op1}\t${3:op2}" },
+		{ "trigger": "div", "contents": "div\t${1:dest}\t${2:op1}\t${3:op2}" },
+		{ "trigger": "cp", "contents": "cp\t${1:to}\t${2:from}" },
+		{ "trigger": "and", "contents": "and\t${1:dest}\t${2:op1}\t${3:op2}" },
+		{ "trigger": "or", "contents": "or\t${1:dest}\t${2:op1}\t${3:op2}" },
+		{ "trigger": "not", "contents": "not\t${1:dest}\t${2:op1}" },
+		{ "trigger": "sl", "contents": "sl\t${1:dest}\t${2:val}\t${3:bits}" },
+		{ "trigger": "sr", "contents": "sr\t${1:dest}\t${2:op1}\t${3:bits}" },
+		{ "trigger": "cpfa", "contents": "cfpa\t${1:dest}\t${2:base}\t${3:index}" },
+		{ "trigger": "cpta", "contents": "cpta\t${1:source}\t${2:base}\t${3:index}" },
+		{ "trigger": "be", "contents": "be\t${1:label}\t${2:op1}\t${3:op2}" },
+		{ "trigger": "bne", "contents": "bne\t${1:label}\t${2:op1}\t${3:op2}" },
+		{ "trigger": "blt", "contents": "blt\t${1:label}\t${2:op1}\t${3:op2}" },
+		{ "trigger": "call", "contents": "call\t${1:label}\t${2:ra}" },
+		{ "trigger": "ret", "contents": "ret\t${1:ra}" },
+	]
+}
